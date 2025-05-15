@@ -19,5 +19,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copia todo o projeto
 COPY . .
 
-# Comando de entrada padrão para o container
-CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"]
+# Entrypoint para rodar migrations e criar superuser automaticamente
+CMD ["sh", "-c", "python manage.py migrate && python manage.py createsuperuser --noinput || true && python manage.py runserver 0.0.0.0:8000"]
