@@ -20,9 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 gestorp_conf = os.path.join(BASE_DIR, 'gestorp.config')
 
 if exists(gestorp_conf):
-    load_dotenv(gestorp_conf)
-
-
+    load_dotenv(gestorp_conf, override=False)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
